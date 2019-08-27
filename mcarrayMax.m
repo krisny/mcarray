@@ -9,7 +9,7 @@ function maxOut = mcarrayMax(d,maxtype)
 %
 % d: array of mocap structs
 % maxtype: 'normal' (Default) choose max value across all data streams
-%          'absval' choose most extreme value (disregard sign)
+%          'absmax' choose most extreme value (disregard sign)
 %
 % maxout: a single mocap struct
 %

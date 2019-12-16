@@ -1,6 +1,6 @@
 function minOut = mcarrayMin(d,mintype)
 % 
-% Mean across all mocap structs in an array.
+% Min across all mocap structs in an array.
 % If the number of frames in the structs are different, the longer structs
 % will be cut.
 %

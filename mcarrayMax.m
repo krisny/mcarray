@@ -1,8 +1,17 @@
 function maxOut = mcarrayMax(d,maxtype)
 % 
-% Mean across all mocap structs in an array.
+% Max value across all mocap structs in an array.
 % If the number of frames in the structs are different, the longer structs
 % will be cut.
+%
+% maxOut = mcarrayMax(d)
+% maxOut = mcarrayMax(d,maxtype)
+%
+% d: array of mocap structs
+% maxtype: 'normal' (Default) choose max value across all data streams
+%          'absval' choose most extreme value (disregard sign)
+%
+% maxout: a single mocap struct
 %
 % By Kristian Nymoen, RITMO/University of Oslo, 2019
 %

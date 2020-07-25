@@ -228,7 +228,7 @@ if plotMean %lighter colors when showing mean curves
     colors  = cellfun(@(x) x*.3+.7,colors,'UniformOutput',false);
 end
 
-figure
+%figure
 
 if isfield(d(1),'type')
     

@@ -1,7 +1,12 @@
 function dout = mcarrayRemoveLeastNormal(d, n, marker, dim)
 % remove the n "least typical" elements of a mcarray
 % only works for one marker in one dimension (Default uses marker 3 dimension 3)
-
+% mcarrayRemoveLeastNormal(d, n, marker, dim)
+%
+% d = mcarray, array of mocap structs
+% n = number of array elements to remove
+% marker = which marker to use in typicality comparison
+% dim = which dimension to use in typicality comparison
 
 if nargin == 1
     n = 5;

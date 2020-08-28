@@ -22,22 +22,25 @@ fh = str2func(f);
 
 x = varargin;
 
-
-if nargout(fh)
-    switch class(fh(d(1),x{:}))
-        case 'struct'
-            for i = 1:length(d)
-                dout(i) = fh(d(i),x{:});
-            end
-        otherwise
-            for i = 1:length(d)
-                dout{i} = fh(d(i),x{:});
-            end
-    end
+if ~isempty(d)
+    if nargout(fh)
+        switch class(fh(d(1),x{:}))
+            case 'struct'
+                for i = 1:length(d)
+                    dout(i) = fh(d(i),x{:});
+                end
+            otherwise
+                for i = 1:length(d)
+                    dout{i} = fh(d(i),x{:});
+                end
+        end
+    else
+        for i = 1:length(d)
+            fh(d(i),x{:});
+        end
+    end     
 else
-    for i = 1:length(d)
-        fh(d(i),x{:});
-    end
-end     
-    
+    dout = d; %if input is empty the output input
+end
+
 end

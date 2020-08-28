@@ -32,8 +32,11 @@ if nargin < 4
     nbins = 100;
 end
 
-col = (marker-1) * 3 + dim;
-
+if strcmpi(d(1).type, 'norm data')
+    col = marker;
+else
+    col = (marker-1) * 3 + dim;
+end
 
 b = d(1).data(:,col);
 
@@ -51,6 +54,12 @@ end
 
 bmax = max(max(b));
 bmin = min(min(b));
+
+if length(nbins) == 3
+    bmin = nbins(1);
+    bmax = nbins(2);
+    nbins = nbins(3);
+end
 
 edges = linspace(bmin,bmax,nbins);
 

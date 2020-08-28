@@ -23,7 +23,7 @@ function mcarrayPlotTimeseries(varargin)
 % var: variable to be plotted for segment segm (for segm data structure - default: 1)
 % timetype: time type used in the plot ('sec' (seconds - default) or 'frame')
 % plotopt: plotting option (for MoCap or norm data structure); 'sep' (default) or 'comb':
-%   sep: all time series  are plotted in separate subplots
+%   sep: all time series  are plotted in separate %subplots
 %   comb: all time series will be plotted into the same plot using different colors)
 % label: y-axis label (default: no y-axis label). X-axis label is always set, according to timetype
 %   (however, for plotting neither x-axis nor y-axis labels: 'label', 0)
@@ -245,7 +245,8 @@ if isfield(d(1),'type')
         for k=1:length(p1)
             for m=1:length(p2)
                 if strcmp(plotopt, 'sep')
-                    subplot(length(p1), length(p2), length(p2)*(k-1)+m),hold on
+                    %subplot(length(p1), length(p2), length(p2)*(k-1)+m),
+                    hold on
 
                     if showLines
                         pl=plot(t, d(di).data(:,3*p1(k)-3+p2(m)));
@@ -304,7 +305,8 @@ if isfield(d(1),'type')
         for k=1:length(p1)
             for m=1%:length(p2)
                 if strcmp(plotopt, 'sep') 
-                    subplot(length(p1), 1, k),hold on
+                    %subplot(length(p1), 1, k),
+                    hold on
                     if showLines
                         pl = plot(t, d(di).data(:,p1(k)));
                         set(pl,'color',colors{mod(al-1,length(colors))+1}) %al has 4 colors, should start over with blue after 7 lines
@@ -368,7 +370,8 @@ if isfield(d(1),'type')
                 if strcmp(var, 'angle')
                     if strcmp(plotopt, 'sep')
                         % k
-                        subplot(length(p1),1,k),hold on
+                        %subplot(length(p1),1,k),
+                        hold on
                         pl = plot(t, tmp);
                         set(pl,'color',colors{mod(al-1,length(colors))+1}) %al has 4 colors, should start over with blue after 7 lines
                         axis([min(t) tmax -Inf Inf])
@@ -404,7 +407,8 @@ if isfield(d(1),'type')
                 elseif strcmp(var, 'eucl')
                     for m=1:length(p2)
                         if strcmp(plotopt, 'sep')
-                            subplot(length(p1), length(p2), length(p2)*(k-1)+m),hold on
+                            %subplot(length(p1), length(p2), length(p2)*(k-1)+m),
+                            hold on
                             pl = plot(t, tmp(:,p2(m)));
                             set(pl,'color',colors{mod(al-1,length(colors))+1}) %al has 4 colors, should start over with blue after 7 lines
                             if names==0
@@ -441,7 +445,8 @@ if isfield(d(1),'type')
                 elseif strcmp(var, 'quat')
                     for m=1:length(p2)
                         if strcmp(plotopt, 'sep')
-                            subplot(length(p1), length(p2), length(p2)*(k-1)+m),hold on
+                            %subplot(length(p1), length(p2), length(p2)*(k-1)+m),
+                            hold on
                             plot(t, tmp(:,p2(m)))
                             if names==0
                                 title(['Segm. ' num2str(p1(k)) ', comp. ' num2str(p2(m)) ' - quat']);
@@ -508,7 +513,7 @@ if isfield(d(1),'type')
             for k=1:length(p1)
                 for m=1:length(p2)
                     if strcmp(plotopt, 'sep')
-                        subplot(length(p1), length(p2), length(p2)*(k-1)+m)
+                        %subplot(length(p1), length(p2), length(p2)*(k-1)+m)
 
                         %pl1 = plot(t, dmean.data(:,3*p1(k)-3+p2(m))-dstd.data(:,3*p1(k)-3+p2(m)),'k','HandleVisibility','off');
                         %pl2 = plot(t, dmean.data(:,3*p1(k)-3+p2(m))+dstd.data(:,3*p1(k)-3+p2(m)),'k','HandleVisibility','off');
@@ -535,7 +540,7 @@ if isfield(d(1),'type')
             for k=1:length(p1)
                 for m=1%:length(p2)
                     if strcmp(plotopt, 'sep') 
-                        subplot(length(p1), 1, k)
+                        %subplot(length(p1), 1, k)
                        % plot(t, dmean.data(:,p1(k))-dstd.data(:,p1(k)),'k','HandleVisibility','off');
                        % plot(t, dmean.data(:,p1(k))+dstd.data(:,p1(k)),'k','HandleVisibility','off');
 
@@ -568,7 +573,7 @@ if isfield(d(1),'type')
         for k=1:length(p1)
             for m=1:length(p2)
                 if strcmp(plotopt, 'sep')
-                    subplot(length(p1), length(p2), length(p2)*(k-1)+m)
+                    %subplot(length(p1), length(p2), length(p2)*(k-1)+m)
 
                     pl=plot(t, dmean.data(:,3*p1(k)-3+p2(m)),'k','LineWidth',2);
                     axis([min(t) tmax -Inf Inf])
@@ -595,7 +600,7 @@ if isfield(d(1),'type')
         for k=1:length(p1)
             for m=1%:length(p2)
                 if strcmp(plotopt, 'sep') 
-                    subplot(length(p1), 1, k)
+                    %subplot(length(p1), 1, k)
                     plot(t, dmean.data(:,p1(k)),'k','LineWidth',2);
                 else
                     pl=plot(t, dmean.data(:,p1(k)),'k','LineWidth',2); %FIXBB110102: 'comb' also for norm data
